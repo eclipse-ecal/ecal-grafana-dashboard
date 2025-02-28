@@ -14,6 +14,7 @@ The eCAL-Dashboard provides functionality for monitoring the state of the eCAL m
 
 The application consists of a Python script that polls eCAL's Monitoring API at predefined intervals. It subscribes to the "machine_state_[HOSTNAME]"-named topics, to which eCAL's Machine Monitoring Agents (MMAs) publish information regarding individual hosts (CPU, RAM, Disk, etc.). The collected data is then inserted into a SQLite database, which serves as the data source for the Grafana dashboards.
 
+The messages sent by the MMA follow the protobuf specification provided in `proto_messages\mma.proto`. This protofile stems from [here](https://github.com/eclipse-ecal/ecal/blob/8d05b9cea0eeb650ffae2bb107edb7abc5feb29e/app/app_pb/src/ecal/app/pb/mma/mma.proto#L4) and has to be considered in upgrades.  
 ## Usage
 
 To monitor the eCAL middleware using the eCAL-Dashboard, follow these steps:
@@ -40,3 +41,5 @@ docker-compose up -d
 
 
 
+## License 
+tbd
