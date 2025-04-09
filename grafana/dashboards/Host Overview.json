@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 3,
   "links": [],
   "panels": [
     {
@@ -43,7 +43,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-GrYlRd"
           },
           "mappings": [],
           "max": 100,
@@ -56,7 +56,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -82,7 +83,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.4.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -111,7 +112,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-GrYlRd"
           },
           "mappings": [],
           "max": 100,
@@ -124,7 +125,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -150,7 +152,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.4.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -179,7 +181,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-GrYlRd"
           },
           "mappings": [],
           "max": 100,
@@ -192,7 +194,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -218,10 +221,10 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.4.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
-          "queryText": "SELECT hname, cpu_load\nFROM hosts\nWHERE hname = 'P14SONB058' \nAND time_stamp = (SELECT MAX(time_stamp) FROM hosts WHERE hname = 'P14SONB058')\n\n\n",
+          "queryText": "SELECT hname, cpu_load\nFROM hosts\nWHERE hname = 'VisionPro' \nAND time_stamp = (SELECT MAX(time_stamp) FROM hosts WHERE hname = 'VisionPro')\n\n\n",
           "queryType": "table",
           "rawQueryText": "SELECT hname, cpu_load\nFROM hosts\nWHERE hname = '$hname' \nAND time_stamp = (SELECT MAX(time_stamp) FROM hosts WHERE hname = '$hname')\n\n\n",
           "refId": "A",
@@ -306,8 +309,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -430,8 +432,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -549,8 +550,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -620,7 +620,7 @@
       "type": "row"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -628,82 +628,88 @@
         "y": 13
       },
       "id": 7,
-      "panels": [
-        {
-          "datasource": {
-            "name": "Ecal Monitoring",
-            "type": "sqlite"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {
-                "align": "auto",
-                "cellOptions": {
-                  "type": "auto"
-                },
-                "inspect": false
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 36
-          },
-          "id": 5,
-          "options": {
-            "cellHeight": "sm",
-            "footer": {
-              "countRows": false,
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true
-          },
-          "pluginVersion": "11.4.0",
-          "targets": [
-            {
-              "datasource": {
-                "type": "frser-sqlite-datasource",
-                "uid": "ae57ukfdysxs0e"
-              },
-              "queryText": "SELECT * FROM current_processes",
-              "queryType": "table",
-              "rawQueryText": "SELECT * FROM current_processes",
-              "refId": "A",
-              "timeColumns": [
-                "time",
-                "ts"
-              ]
-            }
-          ],
-          "title": "Processes on Host $hname ",
-          "type": "table"
-        }
-      ],
+      "panels": [],
       "title": "Processes",
       "type": "row"
+    },
+    {
+      "datasource": {
+        "name": "Ecal Monitoring",
+        "type": "sqlite"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 5,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "state_severity"
+          }
+        ]
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "frser-sqlite-datasource",
+            "uid": "ae57ukfdysxs0e"
+          },
+          "queryText": "SELECT uname, hname, pid, rclock, time_stamp, ecal_runtime_version, state_severity, state_severity_level, state_info\r\nFROM current_processes;\r\n",
+          "queryType": "table",
+          "rawQueryText": "SELECT uname, hname, pid, rclock, time_stamp, ecal_runtime_version, state_severity, state_severity_level, state_info\r\nFROM current_processes;\r\n",
+          "refId": "A",
+          "timeColumns": [
+            "time",
+            "ts"
+          ]
+        }
+      ],
+      "title": "Processes on Host $hname ",
+      "type": "table"
     },
     {
       "collapsed": true,
@@ -711,7 +717,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 22
       },
       "id": 13,
       "panels": [
@@ -778,7 +784,7 @@
             "h": 8,
             "w": 8,
             "x": 0,
-            "y": 37
+            "y": 23
           },
           "id": 14,
           "options": {
@@ -789,11 +795,12 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "single",
               "sort": "none"
             }
           },
-          "pluginVersion": "11.4.0",
+          "pluginVersion": "11.5.2",
           "targets": [
             {
               "datasource": {
@@ -890,7 +897,7 @@
             "h": 8,
             "w": 8,
             "x": 8,
-            "y": 37
+            "y": 23
           },
           "id": 16,
           "options": {
@@ -901,11 +908,12 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "single",
               "sort": "none"
             }
           },
-          "pluginVersion": "11.4.0",
+          "pluginVersion": "11.5.2",
           "targets": [
             {
               "datasource": {
@@ -1002,7 +1010,7 @@
             "h": 8,
             "w": 8,
             "x": 16,
-            "y": 37
+            "y": 23
           },
           "id": 15,
           "options": {
@@ -1013,11 +1021,12 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "single",
               "sort": "none"
             }
           },
-          "pluginVersion": "11.4.0",
+          "pluginVersion": "11.5.2",
           "targets": [
             {
               "datasource": {
@@ -1063,8 +1072,8 @@
     "list": [
       {
         "current": {
-          "text": "P14SONB058",
-          "value": "P14SONB058"
+          "text": "VisionPro",
+          "value": "VisionPro"
         },
         "datasource": {
           "name": "Ecal Monitoring",
@@ -1082,8 +1091,8 @@
       },
       {
         "current": {
-          "text": "24856",
-          "value": "24856"
+          "text": "21",
+          "value": "21"
         },
         "datasource": {
           "name": "Ecal Monitoring",
@@ -1109,6 +1118,6 @@
   "timezone": "browser",
   "title": "Host Overview",
   "uid": "ae76bancz2vpcc",
-  "version": 1,
+  "version": 8,
   "weekStart": ""
 }
